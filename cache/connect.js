@@ -14,7 +14,7 @@ async function clientOperations(options) {
         })
         //
         redisClient.on('connect', () => {
-            console.log('Redis client is connected.')
+            console.log('Redis client is connected to ' + options.host)
             connObject = {
                 cacheClient: redisClient,
                 connected: true

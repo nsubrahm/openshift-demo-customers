@@ -35,7 +35,7 @@ async function run() {
                 })
                 resolve()
             } catch (err) {
-                console.log('Server launch failed. Exiting.')
+                console.log('Server launch failed. Exiting.' + err)
                 reject()
             }
         } else {

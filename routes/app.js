@@ -40,9 +40,9 @@ function launchServer(options) {
     serverSetup(options.connObject).listen(options.server.port, (err, res) => {
         if (err) {
             // TODO: Handle EADDRINUSE error.
-            logger.error('Registry Server did not launch. %s', err)
+            logger.error('Demo did not launch. %s', err)
         } else {
-            logger.info('Registry Server listening at %d', options.server.port)
+            logger.info('Demo listening at %d', options.server.port)
         }
     })
 }
