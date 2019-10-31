@@ -1,0 +1,30 @@
+{
+  "name": "openshift-demo-customers",
+  "version": "1.0.0",
+  "description": "API end-point for manipulating customers in a Redis data store",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsubrahm/openshift-demo-customers.git"
+  },
+  "keywords": [
+    "nodejs",
+    "redis",
+    "openshift"
+  ],
+  "author": "Nagesh Subrahmanyam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nsubrahm/openshift-demo-customers/issues"
+  },
+  "homepage": "https://github.com/nsubrahm/openshift-demo-customers#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "random-number": "0.0.9",
+    "redis": "^2.8.0"
+  }
+}
