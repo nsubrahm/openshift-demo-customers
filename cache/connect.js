@@ -5,7 +5,7 @@ async function clientOperations(options) {
     let redisClient = redis.createClient(options)
     return new Promise((resolve, reject) => {
         redisClient.on('error', (err) => {
-            logger.error('Redis client connection error. %s', err)
+            console.log('Redis client connection error. %s', err)
             connObject = {
                 cacheClient: {},
                 connected: false
@@ -14,7 +14,7 @@ async function clientOperations(options) {
         })
         //
         redisClient.on('connect', () => {
-            logger.info('Redis client is connected.')
+            console.log('Redis client is connected.')
             connObject = {
                 cacheClient: redisClient,
                 connected: true
@@ -23,7 +23,7 @@ async function clientOperations(options) {
         })
         //
         redisClient.on('ready', () => {
-            logger.info('Redis client is ready.')
+            console.log('Redis client is ready.')
             connObject = {
                 cacheClient: redisClient,
                 connected: true
@@ -32,7 +32,7 @@ async function clientOperations(options) {
         })
         //
         redisClient.on('reconnecting', (err) => {
-            logger.error('Redis client reconnecting. %s', err ? err : '')
+            console.log('Redis client reconnecting. %s', err ? err : '')
             connObject = {
                 cacheClient: {},
                 connected: false
@@ -42,7 +42,7 @@ async function clientOperations(options) {
         })
         //
         redisClient.on('end', (err) => {
-            logger.error('Redis client ended. %s', err ? err : '')
+            console.log('Redis client ended. %s', err ? err : '')
             connObject = {
                 cacheClient: {},
                 connected: false
