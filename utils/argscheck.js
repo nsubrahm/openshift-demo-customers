@@ -3,9 +3,9 @@ const process = require('process')
 function validateArgs() {
     let argcheck = true
     let options = {}
-    if (process.env.CUSTAPI_CONFIG) {
+    if (process.env.CUSTDEMO_CONFIG) {
         try {
-            let j = JSON.parse(process.env.REGISTRY_CONFIG)
+            let j = JSON.parse(process.env.CUSTDEMO_CONFIG)
             if (j.server) {
                 // TODO : Detailed checks for server configuration
                 options.server = j.server
