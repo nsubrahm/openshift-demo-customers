@@ -59,7 +59,7 @@ function serverSetup(connObject) {
     //
     app.put('/customer/:customerId', async (req, res, next) => {
         try {
-            let cacheResp = await cache.putCustomer({
+            let cacheResp = await cache.editCustomer({
                 cacheClient: connObject.cacheClient,
                 payload: req.body,
                 key: req.params.customerId
@@ -84,7 +84,7 @@ function serverSetup(connObject) {
         try {
             let cacheResp = await cache.removeCustomer({
                 cacheClient: connObject.cacheClient,
-                payload: req.body
+                key: req.params.customerId
             })
             if (cacheResp) {
                 res.status(200).send({
