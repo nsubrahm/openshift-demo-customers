@@ -62,7 +62,7 @@ async function editCustomer(options) {
 async function removeCustomer(options) {
     return new Promise (async (resolve, reject) => {
         let cacheClient = options.cacheClient
-        cacheClient.delete(options.key, (err, res) => {
+        cacheClient.del(options.key, (err, res) => {
             if (err) {
                 reject(err)
             } else if (res === 0) {
