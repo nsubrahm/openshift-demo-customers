@@ -41,7 +41,7 @@ function serverSetup(connObject) {
                 cacheClient: connObject.cacheClient,
                 key: req.params.customerId
             })
-            if (cacheResp) {
+            if (Object.keys(cacheResp).length > 0) {
                 res.status(200).send({
                     message : cacheResp
                 })
@@ -64,7 +64,7 @@ function serverSetup(connObject) {
                 payload: req.body,
                 key: req.params.customerId
             })
-            if (cacheResp) {
+            if (Object.keys(cacheResp).length > 0) {
                 res.status(200).send({
                     message : 'Customer Id updated'
                 })
@@ -86,7 +86,7 @@ function serverSetup(connObject) {
                 cacheClient: connObject.cacheClient,
                 key: req.params.customerId
             })
-            if (cacheResp) {
+            if (Object.keys(cacheResp).length > 0) {
                 res.status(200).send({
                     message : 'Customer Id deleted'
                 })
