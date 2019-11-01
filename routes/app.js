@@ -34,6 +34,8 @@ function serverSetup(connObject) {
             })
         }
     })
+    //
+    return app
 }
 //
 function launchServer(options) {
