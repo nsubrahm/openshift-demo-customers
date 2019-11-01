@@ -35,6 +35,73 @@ function serverSetup(connObject) {
         }
     })
     //
+    app.get('/customer/:customerId', async (req, res, next) => {
+        try {
+            let cacheResp = await cache.getCustomer({
+                cacheClient: connObject.cacheClient,
+                key: req.params.customerId
+            })
+            if (cacheResp) {
+                res.status(200).send({
+                    message : cacheResp
+                })
+            } else {
+                res.status(404).send({
+                    message : 'Customer ID not found'
+                })
+            }
+        } catch(e) {
+            res.status(500).send({
+                message: 'Internal error ' + e
+            })
+        }
+    })
+    //
+    app.put('/customer/:customerId', async (req, res, next) => {
+        try {
+            let cacheResp = await cache.putCustomer({
+                cacheClient: connObject.cacheClient,
+                payload: req.body,
+                key: req.params.customerId
+            })
+            if (cacheResp) {
+                res.status(200).send({
+                    message : 'Customer Id updated'
+                })
+            } else {
+                res.status(404).send({
+                    message : 'Customer ID not found'
+                })
+            }
+        } catch(e) {
+            res.status(500).send({
+                message: 'Internal error ' + e
+            })
+        }
+    })
+    //
+    app.delete('/customer/:customerId', async (req, res, next) => {
+        try {
+            let cacheResp = await cache.removeCustomer({
+                cacheClient: connObject.cacheClient,
+                payload: req.body
+            })
+            if (cacheResp) {
+                res.status(200).send({
+                    message : 'Customer Id deleted'
+                })
+            } else {
+                res.status(404).send({
+                    message : 'Customer ID not found'
+                })
+            }
+        } catch(e) {
+            res.status(500).send({
+                message: 'Internal error ' + e
+            })
+        }
+    })        
+    //
     return app
 }
 //
