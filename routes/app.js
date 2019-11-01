@@ -42,9 +42,9 @@ function launchServer(options) {
     serverSetup(options.connObject).listen(options.server.port, (err, res) => {
         if (err) {
             // TODO: Handle EADDRINUSE error.
-            logger.error('Demo did not launch. %s', err)
+            console.log('Demo did not launch. %s', err)
         } else {
-            logger.info('Demo listening at %d', options.server.port)
+            console.log('Demo listening at %d', options.server.port)
         }
     })
 }
