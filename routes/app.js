@@ -19,7 +19,7 @@ function serverSetup(connObject) {
     //    
     app.post('/customers', async (req, res, next) => {
         try {
-            console.log('Body: ' + req.body)
+            console.log('Body: ' + JSON.stringify(req.body))
             let cacheResp = await cache.addCustomer({
                 cacheClient: connObject.cacheClient,
                 payload: req.body
