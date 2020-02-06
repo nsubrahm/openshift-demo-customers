@@ -23,13 +23,12 @@ async function addCustomer(options) {
 async function getCustomer(options) {
     return new Promise(async (resolve, reject) => {
         let cacheClient = options.cacheClient
+        console.log('Key : ' + options.key)
         await cacheClient.get(options.key, (err, res) => {
             if (err) {
                 reject(err)
-            } else if (res) {
-                resolve(JSON.parse(res))
             } else {
-                resolve({})
+                resolve(JSON.parse(res))
             }
         })
     })

@@ -37,6 +37,7 @@ function serverSetup(connObject) {
     //
     app.get('/customer/:customerId', async (req, res, next) => {
         try {
+            console.log('Req : ' + req.params.customerId)
             let cacheResp = await cache.getCustomer({
                 cacheClient: connObject.cacheClient,
                 key: req.params.customerId
