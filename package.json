@@ -23,7 +23,7 @@
   "homepage": "https://github.com/nsubrahm/openshift-demo-customers#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "random-number": "0.0.9",
     "redis": "^2.8.0"
   }
